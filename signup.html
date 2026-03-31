@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar | StudyBuddy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="auth-page">
+    <div class="container auth-container">
+        <div class="auth-card glass-effect">
+            <div class="auth-header">
+                <a href="index.html" class="brand">
+                    <div class="logo-morph"></div>
+                    <span>StudyBuddy</span>
+                </a>
+                <h1>Buat Akun Baru</h1>
+                <p>Mulai atur jadwal belajarmu dengan cerdas.</p>
+            </div>
+
+            <form class="auth-form">
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" placeholder="Masukkan nama Anda" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="nama@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Minimal 8 karakter" required>
+                    <div class="password-strength">
+                        <div class="bar"></div>
+                    </div>
+                </div>
+
+                <label class="checkbox-container">
+                    <input type="checkbox" required>
+                    <span class="checkmark"></span>
+                    <span class="text">Saya setuju dengan <a href="#">Syarat & Ketentuan</a></span>
+                </label>
+
+                <button type="submit" class="btn-accent btn-full">Buat Akun</button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Sudah punya akun? <a href="login.html">Masuk di sini</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

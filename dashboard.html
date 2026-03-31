@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | StudyBuddy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="brand">
+                <div class="logo-morph"></div>
+                <span>StudyBuddy</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html">Beranda</a>
+                <a href="#">Jadwal</a>
+                <a href="#">Tugas</a>
+            </div>
+
+            <button id="burger-menu" class="burger-menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-switcher-btn">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+                <div class="auth-btns">
+                    <a href="index.html" class="btn-text">Keluar</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dash-body container">
+        
+        <div class="alert-banner">
+            <div class="alert-content">
+                <h5>⚠️ Mode Tamu Aktif</h5>
+                <p>Data Anda hanya tersimpan secara lokal. Hubungkan ke Cloud untuk sinkronisasi permanen.</p>
+            </div>
+            <button class="btn-primary" style="padding: 8px 16px; font-size: 0.8rem;">Hubungkan</button>
+        </div>
+
+        <header class="dash-header">
+            <div class="welcome-text">
+                Halo, Budi 👋
+            </div>
+            <div class="badge-group">
+                <span class="status-badge orange">Guest Account</span>
+                <span class="status-badge online">● Online Sync</span>
+            </div>
+        </header>
+
+        <div class="tab-nav">
+            <div class="tab-link active">Utama</div>
+            <div class="tab-link">Catatan</div>
+            <div class="tab-link">Tugas (PR)</div>
+            <div class="tab-link">Tracker</div>
+            <div class="tab-link">Keuangan</div>
+            <div class="tab-link">Recap</div>
+        </div>
+
+        <div class="dash-grid">
+            
+            <aside class="card-dash">
+                <div class="card-title-area">
+                    <h4>📅 Jadwal Hari Ini</h4>
+                    <div style="color: var(--text-muted); font-size: 1.2rem;">...</div>
+                </div>
+
+                <div class="day-scroller">
+                    <div class="day-box">Sen</div>
+                    <div class="day-box">Sel</div>
+                    <div class="day-box">Rab</div>
+                    <div class="day-box">Kam</div>
+                    <div class="day-box active">Jum</div>
+                    <div class="day-box">Sab</div>
+                </div>
+
+                <div class="schedule-list">
+                    <p style="font-size: 0.7rem; color: var(--accent); font-weight: 700; margin-bottom: 12px;">SERAGAM: PRAMUKA</p>
+                    
+                    <div class="schedule-item">
+                        <strong style="display: block; font-size: 0.9rem;">Web Development</strong>
+                        <span style="font-size: 0.75rem; color: var(--text-muted);">07:00 - 10:00 WIB</span>
+                    </div>
+                    <div class="schedule-item" style="border-left-color: var(--accent);">
+                        <strong style="display: block; font-size: 0.9rem;">Basis Data (MySQL)</strong>
+                        <span style="font-size: 0.75rem; color: var(--text-muted);">10:15 - 12:00 WIB</span>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="card-dash">
+                <div class="card-title-area">
+                    <h4>✅ Daftar PR</h4>
+                    <button class="btn-accent" style="padding: 6px 14px; font-size: 0.8rem;">+ Tambah</button>
+                </div>
+
+                <div class="progress-section">
+                    <div class="progress-info">
+                        <span>Penyelesaian Minggu Ini</span>
+                        <span id="progress-val">65%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" id="main-bar"></div>
+                    </div>
+                </div>
+
+                <div class="empty-box">
+                    <span class="empty-icon">📂</span>
+                    <h6 style="margin-bottom: 5px;">Belum ada tugas baru</h6>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Tugas yang Anda tambahkan akan muncul di sini.</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-bottom">
+            <p>&copy; 2026 StudyBuddy. Dashboard System for Budi.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
