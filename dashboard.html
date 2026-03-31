@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<![CDATA[<!DOCTYPE html>
 <html lang="id" data-theme="dark">
 <head>
     <meta charset="UTF-8">
@@ -32,7 +32,7 @@
                     <span class="moon-icon">🌙</span>
                 </button>
                 <div class="auth-btns">
-                    <a href="index.html" class="btn-text">Keluar</a>
+                    <button onclick="app.logout()" class="btn-text">Keluar</button>
                 </div>
             </div>
         </div>
@@ -85,40 +85,38 @@
                 </div>
 
                 <div class="schedule-list">
-                    <p style="font-size: 0.7rem; color: var(--accent); font-weight: 700; margin-bottom: 12px;">SERAGAM: PRAMUKA</p>
-                    
-                    <div class="schedule-item">
-                        <strong style="display: block; font-size: 0.9rem;">Web Development</strong>
-                        <span style="font-size: 0.75rem; color: var(--text-muted);">07:00 - 10:00 WIB</span>
-                    </div>
-                    <div class="schedule-item" style="border-left-color: var(--accent);">
-                        <strong style="display: block; font-size: 0.9rem;">Basis Data (MySQL)</strong>
-                        <span style="font-size: 0.75rem; color: var(--text-muted);">10:15 - 12:00 WIB</span>
-                    </div>
+                    <!-- Dynamic schedule will render here -->
                 </div>
             </aside>
 
             <section class="card-dash">
                 <div class="card-title-area">
                     <h4>✅ Daftar PR</h4>
-                    <button class="btn-accent" style="padding: 6px 14px; font-size: 0.8rem;">+ Tambah</button>
                 </div>
+
+                <!-- Add Task Form -->
+                <form id="add-task-form" class="task-form" style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; gap: 0.5rem;">
+                        <input id="task-title" type="text" placeholder="Tugas baru..." style="flex: 1; padding: 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-main); color: var(--text-main);">
+                        <input id="task-due" type="date" style="padding: 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-main); color: var(--text-main);">
+                        <button type="submit" class="btn-accent" style="padding: 10px 16px; font-size: 0.9rem;">Tambah</button>
+                    </div>
+                </form>
 
                 <div class="progress-section">
                     <div class="progress-info">
                         <span>Penyelesaian Minggu Ini</span>
-                        <span id="progress-val">65%</span>
+                        <span id="progress-val">0%</span>
                     </div>
                     <div class="progress-track">
                         <div class="progress-fill" id="main-bar"></div>
                     </div>
                 </div>
 
-                <div class="empty-box">
-                    <span class="empty-icon">📂</span>
-                    <h6 style="margin-bottom: 5px;">Belum ada tugas baru</h6>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Tugas yang Anda tambahkan akan muncul di sini.</p>
+                <div id="task-list">
+                    <!-- Dynamic tasks render here -->
                 </div>
+
             </section>
 
         </div>
@@ -132,4 +130,4 @@
 
     <script src="script.js"></script>
 </body>
-</html>
+</html>]]>
