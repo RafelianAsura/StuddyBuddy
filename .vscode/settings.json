@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^cd \"c:/Users/USER/Downloads/StuddyBuddy-main\"; node --check public/script\\.js$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

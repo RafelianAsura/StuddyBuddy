@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | StudyBuddy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="brand">
+                <div class="logo-morph"></div>
+                <span>StudyBuddy</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#dashboard-top">Beranda</a>
+                <a href="#schedule-section">Jadwal</a>
+                <a href="#pr-section">Tugas</a>
+            </div>
+
+            <button id="burger-menu" class="burger-menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-switcher-btn">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+                <div class="auth-btns">
+                    <a href="index.html" class="btn-text">Keluar</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="dashboard-top" class="dash-body container">
+        
+        <div class="alert-banner">
+            <div class="alert-content">
+                <h5>⚠️ Mode Tamu Aktif</h5>
+                <p>Data Anda hanya tersimpan secara lokal. Hubungkan ke Cloud untuk sinkronisasi permanen.</p>
+            </div>
+            <button class="btn-primary" style="padding: 8px 16px; font-size: 0.8rem;">Hubungkan</button>
+        </div>
+
+        <header class="dash-header">
+            <div class="welcome-text">
+                Halo, Budi 👋
+            </div>
+            <div class="badge-group">
+                <span class="status-badge online">● Online Sync</span>
+            </div>
+        </header>
+
+        <div id="dashboard-notifications" class="notification-panel hidden"></div>
+
+        <div class="dashboard-overview">
+            <div class="overview-card profile-card">
+                <h5>Profil Kamu</h5>
+                <p id="profile-name">Halo, Budi</p>
+                <span id="profile-email">budi@test.com</span>
+            </div>
+            <div class="overview-card stats-card">
+                <h5>Ringkasan Minggu</h5>
+                <div class="stat-item">
+                    <span>Total Jadwal</span>
+                    <strong id="stat-schedule-count">0</strong>
+                </div>
+                <div class="stat-item">
+                    <span>PR Aktif</span>
+                    <strong id="stat-pr-count">0</strong>
+                </div>
+                <div class="stat-item">
+                    <span>PR Selesai</span>
+                    <strong id="stat-pr-completed-count">0</strong>
+                </div>
+                <div class="stat-item">
+                    <span>Seragam Hari Ini</span>
+                    <strong id="stat-uniform">-</strong>
+                </div>
+            </div>
+            <div class="overview-card chart-card">
+                <h5>Progres PR</h5>
+                <div class="chart-widget">
+                    <div class="chart-track"><div id="progress-chart-bar" class="chart-fill"></div></div>
+                    <span id="chart-status">0% terselesaikan</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-nav">
+            <div class="tab-link active" data-target="tab-utama">Utama</div>
+            <div class="tab-link" data-target="tab-catatan">Catatan</div>
+            <div class="tab-link" data-target="tab-tugas-pr">Tugas (PR)</div>
+            <div class="tab-link" data-target="tab-tracker">Tracker</div>
+            <div class="tab-link" data-target="tab-keuangan">Keuangan</div>
+            <div class="tab-link" data-target="tab-recap">Recap</div>
+        </div>
+
+        <div id="tab-utama" class="tab-panel">
+            <div class="dash-grid">
+            
+            <aside id="schedule-section" class="card-dash">
+                <div class="card-title-area">
+                    <h4>📅 Jadwal Hari Ini</h4>
+                    <button id="add-schedule-btn" class="small-btn" style="padding: 6px 12px; font-size: 0.8rem;">+ Jadwal</button>
+                </div>
+
+                <div class="day-scroller">
+                    <div class="day-box">Sen</div>
+                    <div class="day-box">Sel</div>
+                    <div class="day-box">Rab</div>
+                    <div class="day-box">Kam</div>
+                    <div class="day-box active">Jum</div>
+                    <div class="day-box">Sab</div>
+                </div>
+
+                <div class="schedule-list">
+                    <p class="schedule-uniform">SERAGAM: <span id="schedule-uniform-label">PRAMUKA</span></p>
+                    <div id="schedule-add-form" class="schedule-add-form hidden">
+                        <div class="field-row">
+                            <input id="new-schedule-uniform" type="text" placeholder="Seragam hari ini (misal PRAMUKA)" />
+                            <input id="new-schedule-title" type="text" placeholder="Nama pelajaran" />
+                            <input id="new-schedule-time" type="text" placeholder="Waktu (contoh 07:00 - 09:00 WIB)" />
+                        </div>
+                        <div class="button-row">
+                            <button type="button" id="save-schedule-btn" class="small-btn">Simpan</button>
+                            <button type="button" id="cancel-schedule-btn" class="small-btn">Batal</button>
+                        </div>
+                    </div>
+                    <div id="schedule-items"></div>
+                </div>
+            </aside>
+
+            <section id="pr-section" class="card-dash">
+                <div class="card-title-area">
+                    <h4>✅ Daftar PR</h4>
+                    <button id="add-pr-btn" class="btn-accent" style="padding: 6px 14px; font-size: 0.8rem;">+ Tambah</button>
+                </div>
+
+                <div id="pr-add-form" class="pr-add-form hidden">
+                    <div class="field-row">
+                        <input id="new-pr-title" type="text" placeholder="Nama tugas PR" />
+                    </div>
+                    <div class="field-row">
+                        <textarea id="new-pr-detail" placeholder="Detail tugas (opsional)"></textarea>
+                    </div>
+                    <div class="button-row">
+                        <button type="button" id="save-pr-btn" class="small-btn">Simpan</button>
+                        <button type="button" id="cancel-pr-btn" class="small-btn">Batal</button>
+                    </div>
+                </div>
+
+                <div class="progress-section">
+                    <div class="progress-info">
+                        <span>Penyelesaian Minggu Ini</span>
+                        <span id="progress-val">65%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" id="main-bar"></div>
+                    </div>
+                </div>
+
+                <div id="pr-task-list"></div>
+
+                <div id="completed-section" class="completed-section hidden">
+                    <h5>PR Selesai</h5>
+                    <div id="pr-completed-list"></div>
+                </div>
+
+                <div class="empty-box">
+                    <span class="empty-icon">📂</span>
+                    <h6 style="margin-bottom: 5px;">Belum ada tugas baru</h6>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Tugas yang Anda tambahkan akan muncul di sini.</p>
+                </div>
+            </section>
+
+        </div>
+
+        <div id="tab-catatan" class="tab-panel hidden">
+            <div class="card-dash">
+                <div class="card-title-area">
+                    <h4>📝 Catatan</h4>
+                    <button id="add-note-btn" class="btn-accent" style="padding: 6px 14px; font-size: 0.8rem;">+ Catatan</button>
+                </div>
+                <div id="note-add-form" class="notes-add-form hidden">
+                    <div class="field-row">
+                        <input id="new-note-title" type="text" placeholder="Judul catatan" />
+                    </div>
+                    <div class="field-row">
+                        <textarea id="new-note-content" placeholder="Isi catatan"></textarea>
+                    </div>
+                    <div class="button-row">
+                        <button type="button" id="save-note-btn" class="small-btn">Simpan</button>
+                        <button type="button" id="cancel-note-btn" class="small-btn">Batal</button>
+                    </div>
+                </div>
+                <div id="notes-list" class="notes-list"></div>
+                <div class="empty-box" id="notes-empty">
+                    <span class="empty-icon">🗒️</span>
+                    <h6 style="margin-bottom: 5px;">Belum ada catatan</h6>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Buat catatan baru untuk menjadikan jadwal lebih mudah diikuti.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-tugas-pr" class="tab-panel hidden">
+            <div class="card-dash">
+                <div class="card-title-area">
+                    <h4>✅ Tugas PR</h4>
+                </div>
+                <div id="pr-task-list-alt"></div>
+                <div class="empty-box" id="pr-alt-empty">
+                    <span class="empty-icon">📂</span>
+                    <h6 style="margin-bottom: 5px;">Belum ada PR</h6>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Semua PR aktif akan tampil di sini.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-tracker" class="tab-panel hidden">
+            <div class="card-dash">
+                <h4>📊 Tracker</h4>
+                <div class="tracker-grid">
+                    <div class="tracker-card" id="tracker-focus">
+                        <h5>Fokus Hari Ini</h5>
+                        <p>Memuat...</p>
+                    </div>
+                    <div class="tracker-card" id="tracker-streak">
+                        <h5>Streak Belajar</h5>
+                        <p>Memuat...</p>
+                    </div>
+                    <div class="tracker-card" id="tracker-goal">
+                        <h5>Goal Minggu</h5>
+                        <p>Memuat...</p>
+                    </div>
+                </div>
+                <div class="tracker-controls">
+                    <div class="field-row">
+                        <label for="tracker-sessions">Tambah Sesi Hari Ini</label>
+                        <button id="tracker-add-session" class="small-btn">+ Sesi</button>
+                    </div>
+                    <div class="field-row">
+                        <input id="tracker-weekly-goal" type="number" min="1" placeholder="Goal mingguan (misal 5)" />
+                        <button id="tracker-save-goal" class="small-btn">Simpan Goal</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-keuangan" class="tab-panel hidden">
+            <div class="card-dash">
+                <h4>💰 Keuangan</h4>
+                <div class="tracker-grid">
+                    <div class="tracker-card" id="finance-saldo">
+                        <h5>Saldo Kelas</h5>
+                        <p>Memuat...</p>
+                    </div>
+                    <div class="tracker-card" id="finance-pengeluaran">
+                        <h5>Pengeluaran</h5>
+                        <p>Memuat...</p>
+                    </div>
+                    <div class="tracker-card" id="finance-tabungan">
+                        <h5>Tabungan</h5>
+                        <p>Memuat...</p>
+                    </div>
+                </div>
+                <div class="finance-form">
+                    <div class="field-row">
+                        <input id="finance-description" type="text" placeholder="Keterangan transaksi" />
+                    </div>
+                    <div class="field-row">
+                        <select id="finance-type">
+                            <option value="income">Pemasukan</option>
+                            <option value="expense">Pengeluaran</option>
+                            <option value="savings">Tabungan</option>
+                        </select>
+                        <input id="finance-amount" type="number" min="0" placeholder="Jumlah (Rp)" />
+                    </div>
+                    <div class="button-row">
+                        <button id="finance-save" class="btn-accent">Simpan Transaksi</button>
+                        <button id="finance-reset" class="small-btn">Reset Data</button>
+                    </div>
+                </div>
+                <div class="finance-transactions" id="finance-transactions"></div>
+            </div>
+        </div>
+
+        <div id="tab-recap" class="tab-panel hidden">
+            <div class="card-dash">
+                <h4>📌 Recap Minggu</h4>
+                <ul class="recap-list" id="recap-list">
+                    <li>Memuat data recap...</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-bottom">
+            <p>&copy; 2026 StudyBuddy. Dashboard System for Budi.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyBuddy | Intelligent Study OS</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body id="top">
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#top" class="brand">
+                <div class="logo-morph"></div>
+                <span>StudyBuddy</span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="#features">Fitur</a>
+                <a href="#workflow">Workflow</a>
+                <a href="#about">Tentang</a>
+            </div>
+
+            <button id="burger-menu" class="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-switcher-btn">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+                <div class="auth-btns">
+                    <a href="login.html" class="btn-text">Masuk</a>
+                    <a href="signup.html" class="btn-primary">Mulai Gratis</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-info">
+                    <div class="announcement">
+                        <span class="dot"></span> StudyBuddy: AI-Powered Learning
+                    </div>
+                    <h1>Kuasai Belajarmu <br> <span class="text-gradient">Tanpa Batas.</span></h1>
+                    <p>Satu ruang kerja digital untuk mengatur jadwal, tugas, dan fokus. Dibangun untuk performa, dirancang untuk kenyamanan mata.</p>
+                    
+                    <div class="cta-wrapper">
+                        <form class="search-form">
+                            <input type="text" placeholder="Cari materi atau tugas..." />
+                            <button type="submit" class="btn-accent">Cari</button>
+                        </form>
+                        <div id="search-results" class="search-results hidden"></div>
+                    </div>
+
+                    <div class="support-row">
+                        <p class="support-text">Dukungan <strong>24/7</strong> untuk 10k+ pelajar aktif.</p>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="visual-container">
+                        <div class="window-mockup main-window">
+                            <div class="window-header">
+                                <div class="dots"><span></span><span></span><span></span></div>
+                                <div class="address-bar">studybuddy.app/dashboard</div>
+                            </div>
+                            <div class="window-body">
+                                <div class="task-card">
+                                    <div class="check-box active"></div>
+                                    <div class="task-info">
+                                        <h6>Database Design</h6>
+                                        <p>Deadline: 14.00 WIB</p>
+                                    </div>
+                                </div>
+                                <div class="task-card">
+                                    <div class="check-box"></div>
+                                    <div class="task-info">
+                                        <h6>UI/UX Research</h6>
+                                        <p>Progress: 45%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floating-stat">
+                            <div class="stat-icon">🔥</div>
+                            <div class="stat-text">
+                                <strong>12 Hari</strong>
+                                <p>Streak Belajar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="section-title">Fitur Masa Depan</h2>
+                    <p>Efisiensi bukan lagi sekadar impian, melainkan standar baru.</p>
+                </div>
+
+                <div class="bento-grid">
+                    <div class="bento-card col-span-2 row-span-1 glass-effect">
+                        <div class="card-content">
+                            <h3>AI Schedule Optimization</h3>
+                            <p>Sistem kami menganalisis pola belajarmu untuk menyarankan waktu istirahat yang tepat agar otak tetap segar.</p>
+                        </div>
+                        <div class="card-image-placeholder viz-gradient"></div>
+                    </div>
+
+                    <div class="bento-card col-span-1 row-span-2 glass-effect">
+                        <div class="card-content">
+                            <h3>Deep Focus Timer</h3>
+                            <p>Mode fokus yang memblokir semua notifikasi distraksi.</p>
+                            <div class="timer-display">25:00</div>
+                        </div>
+                        <div class="card-image-placeholder viz-gradient"></div>
+                    </div>
+
+                    <div class="bento-card col-span-1 row-span-1 glass-effect">
+                        <div class="card-content">
+                            <h3>Cloud Sync</h3>
+                            <p>Akses tugas dari perangkat mana pun.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card col-span-1 row-span-1 glass-effect">
+                        <div class="card-content">
+                            <h3>Secure Login</h3>
+                            <p>Keamanan data tingkat tinggi dengan enkripsi AES-256.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="workflow" class="features">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="section-title">Workflow Pintar</h2>
+                    <p>Rangkaian langkah belajar yang disusun untuk membuat setiap hari lebih produktif.</p>
+                </div>
+                <div class="bento-grid">
+                    <div class="bento-card col-span-1 row-span-1 glass-effect workflow-card active" data-step="1">
+                        <div class="card-content">
+                            <h3>Susun Jadwal</h3>
+                            <p>Atur pelajaran dan seragam harian dengan cepat.</p>
+                        </div>
+                    </div>
+                    <div class="bento-card col-span-1 row-span-1 glass-effect workflow-card" data-step="2">
+                        <div class="card-content">
+                            <h3>Lacak Tugas</h3>
+                            <p>Pantau semua PR dan deadline di satu tempat.</p>
+                        </div>
+                    </div>
+                    <div class="bento-card col-span-1 row-span-1 glass-effect workflow-card" data-step="3">
+                        <div class="card-content">
+                            <h3>Review Hasil</h3>
+                            <p>Evaluasi perkembangan belajar setiap minggu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="features">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="section-title">Tentang StudyBuddy</h2>
+                    <p>StudyBuddy membantu kamu tetap fokus, terorganisir, dan siap menghadapi setiap minggu sekolah.</p>
+                </div>
+                <div class="bento-grid">
+                    <div class="bento-card col-span-1 row-span-1 glass-effect">
+                        <div class="card-content">
+                            <h3>Visi Kami</h3>
+                            <p>Menciptakan platform belajar yang mudah digunakan dan dapat diandalkan oleh semua pelajar.</p>
+                        </div>
+                    </div>
+                    <div class="bento-card col-span-1 row-span-1 glass-effect">
+                        <div class="card-content">
+                            <h3>Misi Kami</h3>
+                            <p>Memberikan alat yang membantu kamu mengatur jadwal, tugas, dan kebiasaan belajar dengan lebih baik.</p>
+                        </div>
+                    </div>
+                    <div class="bento-card col-span-1 row-span-1 glass-effect">
+                        <div class="card-content">
+                            <h3>Temukan Fitur</h3>
+                            <p>Dashboard, jadwal, seragam, dan PR ada dalam satu aplikasi ringkas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-grid">
+                <div class="col-info">
+                    <div class="footer-brand">
+                        <div class="logo-morph small"></div>
+                        <h3>StudyBuddy.</h3>
+                    </div>
+                    <p>Platform Belajar Terintegrasi Masa Depan.</p>
+                </div>
+                <div class="col-links">
+                    <div class="link-group">
+                        <h4>Produk</h4>
+                        <a href="#">Fitur</a>
+                        <a href="#">Keamanan</a>
+                        <a href="#">Pricing</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Perusahaan</h4>
+                        <a href="#">Tentang Kami</a>
+                        <a href="#">Karir</a>
+                        <a href="#">Kontak</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Komunitas</h4>
+                        <a href="#">Discord</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 StudyBuddy Team. Built with heart by CC26-PS048.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
